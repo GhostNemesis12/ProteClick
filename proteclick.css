@@ -765,15 +765,16 @@ body.protected .ibadge { background: rgba(33,150,243,0.12); color: var(--blue); 
 
 /* Panel compacto debajo del teléfono */
 .sim-panel-mini {
-  background: #fff; /* Fondo blanco como la app */
+  background: #fff;
   border: 1px solid rgba(124,106,247,0.1);
   border-radius: 16px;
-  padding: 10px 14px;
-  width: 340px; /* Un poco más estrecho que el teléfono */
+  padding: 16px; /* Aumentado un poco el padding */
+  width: 340px;
   box-shadow: 0 4px 15px rgba(100,80,200,0.05);
   display: flex;
-  align-items: center;
-  justify-content: space-between; /* Etiqueta a la izq, botón a la der */
+  flex-direction: column; /* Cambiado a columna para apilar elementos */
+  gap: 12px;              /* Espacio uniforme entre etiqueta y botones */
+  align-items: stretch;   /* Hace que los botones ocupen todo el ancho disponible */
   flex-shrink: 0;
 }
 
@@ -785,18 +786,20 @@ body.protected .ibadge { background: rgba(33,150,243,0.12); color: var(--blue); 
   display: flex;
   align-items: center;
   gap: 5px;
+  justify-content: center; /* Centra el texto del modo demo */
+  margin-bottom: 2px;
 }
-
 /* ── BOTÓN DEMO (PEQUEÑO Y MINIMALISTA) ── */
 .sim-btn-mini {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  background: rgba(124,106,247,0.06); /* Fondo sutil */
-  color: var(--purple); /* Texto color principal */
+  justify-content: center; /* Centra el contenido del botón */
+  gap: 8px;
+  background: rgba(124,106,247,0.06);
+  color: var(--purple);
   border: 1px solid rgba(124,106,247,0.15);
-  border-radius: 8px;
-  padding: 6px 12px;
+  border-radius: 10px;    /* Bordes un poco más suaves */
+  padding: 10px 14px;     /* Más área de click */
   font-size: 11px;
   font-weight: 700;
   font-family: 'Inter', sans-serif;
