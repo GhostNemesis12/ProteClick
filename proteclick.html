@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proteclick</title>
+    <link rel="stylesheet" href="proteclick.css">
+</head>
+
+<body>
+    <div class="phone-container">
+        <div class="phone">
+            <div class="notch"></div>
+
+            <div class="screen" id="s-home">
+                <div class="hdr">
+                    <div class="app-name">Prote<b>click</b></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="main">
+                    <div class="slabel" id="slabel">DESPROTEGIDO</div>
+                    <div class="shield-wrap" id="sw" onclick="toggleShield()">
+                        <div class="ring r1"></div>
+                        <div class="ring r2"></div>
+                        <div class="ring r3"></div>
+                        <div class="flash"></div>
+                        <div class="sbtn">
+                            <svg class="ssvg" viewBox="0 0 100 115" fill="none">
+                                <path class="sbody" id="sbody"
+                                    d="M50 6 L90 22 L90 55 C90 78 72 98 50 108 C28 98 10 78 10 55 L10 22 Z" />
+                                <g class="sicon open">
+                                    <rect x="33" y="55" width="34" height="26" rx="5" fill="rgba(232,64,64,0.25)"
+                                        stroke="#e84040" stroke-width="1.5" />
+                                    <path d="M38 55 L38 46 C38 36 62 36 62 46" stroke="#e84040" stroke-width="3"
+                                        stroke-linecap="round" fill="none" />
+                                    <circle cx="50" cy="65" r="4" fill="#e84040" />
+                                    <rect x="48" y="65" width="4" height="7" rx="2" fill="#e84040" />
+                                </g>
+                                <g class="sicon closed">
+                                    <rect x="33" y="55" width="34" height="26" rx="5" fill="rgba(33,150,243,0.2)"
+                                        stroke="#2196f3" stroke-width="1.5" />
+                                    <path d="M38 55 L38 46 C38 36 62 36 62 46 L62 55" stroke="#2196f3" stroke-width="3"
+                                        stroke-linecap="round" fill="none" />
+                                    <circle cx="50" cy="65" r="4" fill="#2196f3" />
+                                    <rect x="48" y="65" width="4" height="7" rx="2" fill="#2196f3" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="hint">Toca el escudo para activar</div>
+                    <div class="icard">
+                        <div class="iico">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path id="ipath" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#e84040" />
+                            </svg>
+                        </div>
+                        <div class="itx">
+                            <div class="it" id="ctitle">Sin protección activa</div>
+                            <div class="is" id="csub">Activa el escudo para protegerte</div>
+                        </div>
+                        <div class="ibadge" id="cbadge">Inactivo</div>
+                    </div>
+                </div>
+                <nav class="nav" id="n-home"></nav>
+            </div>
+
+            <div class="screen off" id="s-info">
+                <div class="hdr">
+                    <button class="back-btn" onclick="go('home')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="app-name">Prote<b>click</b></div>
+                </div>
+                <div class="scroll">
+                    <div class="sec"><span>🌱</span>Para empezar</div>
+
+                    <div class="card" onclick="toggleCard(this)">
+                        <div class="ch">
+                            <div class="ci cr">🔑</div>
+                            <div class="ctw">
+                                <div class="ct">¿Qué es una contraseña segura?</div>
+                                <div class="cs">Protege tus cuentas desde la base</div>
+                            </div><span class="bdg bb">Básico</span><svg class="chv" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="cbody">
+                            <div class="div"></div>
+                            <p>Una contraseña segura es como la llave de tu casa: cuanto más complicada, más difícil de
+                                copiar. Debe tener al menos <strong>8 letras, números y algún símbolo</strong> como ! o
+                                @.</p>
+                            <div class="tips">
+                                <div class="tip"><span class="te">✅</span><span class="tt">Usa una frase que recuerdes:
+                                        "MiGato3neLugar!" es mucho mejor que "1234".</span></div>
+                                <div class="tip"><span class="te">✅</span><span class="tt">No uses tu nombre, fecha de
+                                        nacimiento ni el nombre de tu mascota.</span></div>
+                                <div class="tip"><span class="te">✅</span><span class="tt">Cambia tus contraseñas cada
+                                        pocos meses, sobre todo en el correo y el banco.</span></div>
+                            </div>
+                            <div class="warn"><span>⚠️</span>Nunca compartas tu contraseña con nadie, ni aunque diga ser
+                                del banco o tu operadora.</div>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="toggleCard(this)">
+                        <div class="ch">
+                            <div class="ci cr">🎣</div>
+                            <div class="ctw">
+                                <div class="ct">¿Qué es el phishing?</div>
+                                <div class="cs">El engaño más común en internet</div>
+                            </div><span class="bdg bb">Básico</span><svg class="chv" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="cbody">
+                            <div class="div"></div>
+                            <p>El phishing es cuando alguien te manda un mensaje fingiendo ser tu banco, Correos o
+                                Hacienda para robarte datos o dinero.</p>
+                            <p>Llega por correo, SMS o WhatsApp con urgencia: <em>"Su cuenta será bloqueada en 24
+                                    horas"</em>.</p>
+                            <div class="tips">
+                                <div class="tip"><span class="te">🔍</span><span class="tt">Fíjate en quién te escribe.
+                                        "soporte@banco-seguro.xyz" no es tu banco.</span></div>
+                                <div class="tip"><span class="te">🛑</span><span class="tt">Nunca pulses enlaces de
+                                        mensajes inesperados.</span></div>
+                                <div class="tip"><span class="te">📞</span><span class="tt">Si tienes dudas, llama al
+                                        banco por el número del reverso de tu tarjeta.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="toggleCard(this)">
+                        <div class="ch">
+                            <div class="ci cg">📱</div>
+                            <div class="ctw">
+                                <div class="ct">Actualiza tu móvil y apps</div>
+                                <div class="cs">Una acción simple que te protege mucho</div>
+                            </div><span class="bdg bb">Básico</span><svg class="chv" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="cbody">
+                            <div class="div"></div>
+                            <p>Las actualizaciones tapan agujeros de seguridad que los delincuentes podrían aprovechar
+                                para entrar en tu dispositivo.</p>
+                            <div class="tips">
+                                <div class="tip"><span class="te">🔄</span><span class="tt">Activa las actualizaciones
+                                        automáticas en los ajustes de tu móvil.</span></div>
+                                <div class="tip"><span class="te">🛒</span><span class="tt">Descarga apps solo desde App
+                                        Store o Google Play.</span></div>
+                                <div class="tip"><span class="te">🗑️</span><span class="tt">Borra las apps que ya no
+                                        uses. Menos apps = menos riesgo.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sec"><span>📘</span>Nivel medio</div>
+
+                    <div class="card" onclick="toggleCard(this)">
+                        <div class="ch">
+                            <div class="ci cp">🔐</div>
+                            <div class="ctw">
+                                <div class="ct">Doble verificación (2FA)</div>
+                                <div class="cs">Una capa extra de protección</div>
+                            </div><span class="bdg bm">Medio</span><svg class="chv" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="cbody">
+                            <div class="div"></div>
+                            <p>El 2FA añade una segunda comprobación al iniciar sesión: además de la contraseña, recibes
+                                un código por SMS o app que solo tú tienes.</p>
+                            <div class="tips">
+                                <div class="tip"><span class="te">📲</span><span class="tt">Actívalo en tu correo, redes
+                                        y banco. Está en "Seguridad" dentro de los ajustes.</span></div>
+                                <div class="tip"><span class="te">🚫</span><span class="tt">Nunca compartas ese código,
+                                        ni aunque digan ser soporte técnico.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="toggleCard(this)">
+                        <div class="ch">
+                            <div class="ci cb">🌐</div>
+                            <div class="ctw">
+                                <div class="ct">Cómo reconocer webs falsas</div>
+                                <div class="cs">No todas las páginas son lo que parecen</div>
+                            </div><span class="bdg bm">Medio</span><svg class="chv" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="cbody">
+                            <div class="div"></div>
+                            <p>Los delincuentes crean páginas casi idénticas a las reales para robarte datos.</p>
+                            <div class="tips">
+                                <div class="tip"><span class="te">🔒</span><span class="tt">Comprueba que la dirección
+                                        empiece por <strong>https://</strong> y haya un candado.</span></div>
+                                <div class="tip"><span class="te">👀</span><span class="tt">"bancosantander-seguro.com"
+                                        no es el banco. El dominio real es corto y conocido.</span></div>
+                            </div>
+                            <div class="warn"><span>⚠️</span>El candado solo garantiza conexión cifrada, no que la web
+                                sea legítima.</div>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="toggleCard(this)">
+                        <div class="ch">
+                            <div class="ci co">📡</div>
+                            <div class="ctw">
+                                <div class="ct">Redes WiFi públicas</div>
+                                <div class="cs">El peligro del WiFi gratuito</div>
+                            </div><span class="bdg bm">Medio</span><svg class="chv" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="cbody">
+                            <div class="div"></div>
+                            <p>Las redes abiertas de cafeterías o aeropuertos son cómodas, pero cualquiera podría
+                                interceptar lo que envías.</p>
+                            <div class="tips">
+                                <div class="tip"><span class="te">🏦</span><span class="tt">Nunca accedas al banco desde
+                                        un WiFi público sin protección.</span></div>
+                                <div class="tip"><span class="te">🛡️</span><span class="tt">Una VPN cifra tu conexión.
+                                        Proteclick te ayuda con esto.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="toggleCard(this)">
+                        <div class="ch">
+                            <div class="ci cp">🗝️</div>
+                            <div class="ctw">
+                                <div class="ct">Gestores de contraseñas</div>
+                                <div class="cs">Una sola clave para recordarlas todas</div>
+                            </div><span class="bdg bm">Medio</span><svg class="chv" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </div>
+                        <div class="cbody">
+                            <div class="div"></div>
+                            <p>Un gestor guarda todas tus claves cifradas. Solo necesitas recordar una contraseña
+                                maestra para acceder a todas las demás.</p>
+                            <div class="tips">
+                                <div class="tip"><span class="te">📦</span><span class="tt">Opciones fiables:
+                                        <strong>Bitwarden</strong> (gratuito) o <strong>1Password</strong>.</span></div>
+                                <div class="tip"><span class="te">🚫</span><span class="tt">Evita guardar contraseñas en
+                                        notas de papel o documentos sin proteger.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="nav" id="n-info"></nav>
+            </div>
+
+            <div class="screen off" id="s-dominios">
+                <div class="hdr">
+                    <button class="back-btn" onclick="go('home')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="app-name">Prote<b>click</b></div>
+                </div>
+                <div class="toolbar">
+                    <div class="search-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="M21 21l-4.35-4.35" />
+                        </svg>
+                        <input class="search-input" id="searchInput" type="text" placeholder="Buscar dominio exacto…"
+                            oninput="renderList()">
+                    </div>
+                    <div class="sort-row">
+                        <span class="sort-label">Ordenar:</span>
+                        <button class="sort-btn active" id="btnAZ" onclick="setSort('az')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M4 6h16M4 12h10M4 18h6" />
+                            </svg>A → Z
+                        </button>
+                        <button class="sort-btn" id="btnZA" onclick="setSort('za')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M4 6h6M4 12h10M4 18h16" />
+                            </svg>Z → A
+                        </button>
+                    </div>
+                </div>
+                <div class="count-bar" id="countBar"></div>
+                <div class="list" id="listEl">
+                    <div class="empty" id="emptyState">
+                        <div class="empty-ico">🔍</div>
+                        <div class="empty-txt">Sin resultados</div>
+                        <div class="empty-sub">No hay dominios que coincidan con tu búsqueda.</div>
+                    </div>
+                </div>
+                <nav class="nav" id="n-dominios"></nav>
+            </div>
+
+            <div class="screen off" id="s-usuarios">
+
+                <div class="pscreen" id="ps-nogroup">
+                    <div class="hdr">
+                        <button class="back-btn" onclick="go('home')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="app-name">Prote<b>click</b></div>
+                    </div>
+                    <div class="scroll">
+                        <div class="hero">
+                            <div class="hero-icon">👨‍👩‍👧‍👦</div>
+                            <h2>Protección en familia</h2>
+                            <p>Crea un grupo familiar para supervisar y recibir alertas cuando alguien de tu familia
+                                navegue por sitios peligrosos.</p>
+                        </div>
+                        <div class="sec"><span>👥</span> Tu grupo</div>
+                        <div class="acard" onclick="openSheet('create')">
+                            <div class="acard-top">
+                                <div class="acard-icon icon-create">➕</div>
+                                <div class="acard-text">
+                                    <div class="acard-title">Crear grupo familiar</div>
+                                    <div class="acard-sub">Elige tu rol y genera un código para invitar a tu familia.
+                                    </div>
+                                </div>
+                                <div class="acard-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path d="M9 18l6-6-6-6" />
+                                    </svg></div>
+                            </div>
+                        </div>
+                        <div class="acard" onclick="openSheet('join')">
+                            <div class="acard-top">
+                                <div class="acard-icon icon-join">🔗</div>
+                                <div class="acard-text">
+                                    <div class="acard-title">Unirse a un grupo</div>
+                                    <div class="acard-sub">Introduce el código que te ha enviado un familiar.</div>
+                                </div>
+                                <div class="acard-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path d="M9 18l6-6-6-6" />
+                                    </svg></div>
+                            </div>
+                        </div>
+                        <div class="sec"><span>ℹ️</span> ¿Qué son los roles?</div>
+                        <div class="role-grid">
+                            <div class="role-card"
+                                style="border-color:rgba(124,106,247,0.25);background:rgba(124,106,247,0.05)">
+                                <div class="role-emoji">👁️</div>
+                                <div class="role-name">Supervisor</div>
+                                <div class="role-desc">Ves el historial del monitorizado y recibes sus alarmas.</div>
+                                <span class="role-tag tag-sup">Protector</span>
+                            </div>
+                            <div class="role-card"
+                                style="border-color:rgba(33,150,243,0.25);background:rgba(33,150,243,0.05)">
+                                <div class="role-emoji">🛡️</div>
+                                <div class="role-name">Monitorizado</div>
+                                <div class="role-desc">Ves tu historial y recibes alarmas si hay una brecha.</div>
+                                <span class="role-tag tag-mon">Protegido</span>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="nav" id="n-usuarios"></nav>
+                </div>
+
+                <div class="pscreen off" id="ps-supervisor">
+                    <div class="hdr">
+                        <button class="back-btn" onclick="goPS('nogroup')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="app-name">Prote<b>click</b></div>
+                    </div>
+                    <div class="scroll">
+                        <div class="group-banner">
+                            <div class="group-badge">👨‍👩‍👧‍👦</div>
+                            <div class="group-info">
+                                <h3>Familia García</h3>
+                                <p>3 miembros · Activo</p>
+                            </div>
+                            <div class="group-code">
+                                <div class="gc-label">CÓDIGO</div>
+                                <div class="gc-val">X7K2</div>
+                            </div>
+                        </div>
+                        <div class="sec"><span>👥</span> Miembros</div>
+                        <div class="mcard">
+                            <div class="avatar av-sup">MG</div>
+                            <div class="minfo">
+                                <div class="mname">María García</div>
+                                <div class="mrole">Tú · Supervisor</div>
+                            </div><span class="mbadge mb-you">Tú</span>
+                        </div>
+                        <div class="mcard">
+                            <div class="avatar av-mon">JG</div>
+                            <div class="minfo">
+                                <div class="mname">José García</div>
+                                <div class="mrole">Monitorizado · Activo hace 2h</div>
+                            </div><span class="mbadge mb-mon">Monit.</span>
+                        </div>
+                        <div class="mcard">
+                            <div class="avatar av-mon">CG</div>
+                            <div class="minfo">
+                                <div class="mname">Carmen García</div>
+                                <div class="mrole">Monitorizado · Activo ayer</div>
+                            </div><span class="mbadge mb-mon">Monit.</span>
+                        </div>
+                        <div class="sec"><span>🔔</span> Alarmas recientes</div>
+                        <div class="alarm">
+                            <div class="alarm-ico">🚨</div>
+                            <div class="alarm-text">
+                                <div class="at">Sitio de phishing detectado</div>
+                                <div class="as">José García intentó acceder a <strong>bancosantander-ayuda.net</strong>,
+                                    un dominio no verificado.</div>
+                                <div class="alarm-time">Hoy · 11:42</div>
+                            </div>
+                        </div>
+                        <div class="alarm">
+                            <div class="alarm-ico">⚠️</div>
+                            <div class="alarm-text">
+                                <div class="at">Enlace sospechoso en email</div>
+                                <div class="as">Carmen García recibió un enlace de <strong>correos-paquete.info</strong>
+                                    bloqueado automáticamente.</div>
+                                <div class="alarm-time">Ayer · 17:05</div>
+                            </div>
+                        </div>
+                        <div class="sec"><span>📋</span> <span id="hist-title">Historial de José</span></div>
+                        <div class="msel-row">
+                            <div class="msel-av" id="msel-av">JG</div>
+                            <div class="msel-meta">
+                                <div class="msel-name" id="msel-name">José García</div>
+                                <div class="msel-status" id="msel-status">Activo hace 2h</div>
+                            </div>
+                            <div class="msel-wrap">
+                                <select id="member-select" onchange="onMemberChange(this)">
+                                    <option value="jose">José García</option>
+                                    <option value="carmen">Carmen García</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="hist-list"></div>
+                    </div>
+                    <nav class="nav">
+                        <button class="nb" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                <polyline points="9 22 9 12 15 12 15 22" />
+                            </svg><span>Inicio</span></button>
+                        <button class="nb" onclick="go('info')"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="12" />
+                                <line x1="12" y1="16" x2="12.01" y2="16" />
+                            </svg><span>Info y guías</span></button>
+                        <button class="nb" onclick="go('dominios')"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
+                            </svg><span>Dominios</span></button>
+                        <button class="nb on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg><span>Usuarios</span></button>
+                        <button class="nb" onclick="go('ajustes')"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                            </svg><span>Ajustes</span></button>
+                    </nav>
+                </div>
+
+                <div class="pscreen off" id="ps-monitorizado">
+                    <div class="hdr">
+                        <button class="back-btn" onclick="goPS('nogroup')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="app-name">Prote<b>click</b></div>
+                    </div>
+                    <div class="scroll">
+                        <div class="group-banner">
+                            <div class="group-badge">👨‍👩‍👧‍👦</div>
+                            <div class="group-info">
+                                <h3>Familia García</h3>
+                                <p>Estás protegido · Activo</p>
+                            </div>
+                        </div>
+                        <div class="sec"><span>👤</span> Tu perfil</div>
+                        <div class="mcard">
+                            <div class="avatar av-mon">JG</div>
+                            <div class="minfo">
+                                <div class="mname">José García</div>
+                                <div class="mrole">Monitorizado · Supervisado por María</div>
+                            </div><span class="mbadge mb-you">Tú</span>
+                        </div>
+                        <div class="sec"><span>🔔</span> Tus alarmas</div>
+                        <div class="alarm">
+                            <div class="alarm-ico">🚨</div>
+                            <div class="alarm-text">
+                                <div class="at">Acceso bloqueado</div>
+                                <div class="as">Proteclick bloqueó <strong>bancosantander-ayuda.net</strong>. Este sitio
+                                    suplanta a tu banco. Tu supervisora ha sido notificada.</div>
+                                <div class="alarm-time">Hoy · 11:42</div>
+                            </div>
+                        </div>
+                        <div class="sec"><span>📋</span> Mi historial</div>
+                        <div class="hitem">
+                            <div class="hico hico-warn">🛑</div>
+                            <div class="hinfo">
+                                <div class="hsite">bancosantander-ayuda.net</div>
+                                <div class="htime">Hoy · 11:42 · Bloqueado automáticamente</div>
+                            </div><span class="hstatus hs-warn">Alerta</span>
+                        </div>
+                        <div class="hitem">
+                            <div class="hico hico-ok">✅</div>
+                            <div class="hinfo">
+                                <div class="hsite">bancosantander.es</div>
+                                <div class="htime">Hoy · 10:15</div>
+                            </div><span class="hstatus hs-ok">Seguro</span>
+                        </div>
+                        <div class="hitem">
+                            <div class="hico hico-ok">✅</div>
+                            <div class="hinfo">
+                                <div class="hsite">correos.es</div>
+                                <div class="htime">Ayer · 09:30</div>
+                            </div><span class="hstatus hs-ok">Seguro</span>
+                        </div>
+                        <div class="hitem">
+                            <div class="hico hico-ok">✅</div>
+                            <div class="hinfo">
+                                <div class="hsite">seg-social.es</div>
+                                <div class="htime">Lunes · 12:00</div>
+                            </div><span class="hstatus hs-ok">Seguro</span>
+                        </div>
+                        <div class="hitem">
+                            <div class="hico hico-ok">✅</div>
+                            <div class="hinfo">
+                                <div class="hsite">renfe.com</div>
+                                <div class="htime">Domingo · 15:22</div>
+                            </div><span class="hstatus hs-ok">Seguro</span>
+                        </div>
+                    </div>
+                    <nav class="nav">
+                        <button class="nb" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                <polyline points="9 22 9 12 15 12 15 22" />
+                            </svg><span>Inicio</span></button>
+                        <button class="nb" onclick="go('info')"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="12" />
+                                <line x1="12" y1="16" x2="12.01" y2="16" />
+                            </svg><span>Info y guías</span></button>
+                        <button class="nb" onclick="go('dominios')"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
+                            </svg><span>Dominios</span></button>
+                        <button class="nb on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg><span>Usuarios</span></button>
+                        <button class="nb" onclick="go('ajustes')"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                            </svg><span>Ajustes</span></button>
+                    </nav>
+                </div>
+
+                <div class="overlay" id="ov-create" onclick="closeOverlay(event,'ov-create')">
+                    <div class="sheet" onclick="event.stopPropagation()">
+                        <div class="sheet-handle"></div>
+                        <div class="sheet-title">Crear grupo familiar</div>
+                        <div class="sheet-sub">Elige tu rol dentro del grupo</div>
+                        <div class="role-grid">
+                            <div class="role-card" id="rc-sup" onclick="selectRole('sup')">
+                                <div class="role-emoji">👁️</div>
+                                <div class="role-name">Supervisor</div>
+                                <div class="role-desc">Ves el historial del monitorizado y recibes sus alarmas.</div>
+                                <span class="role-tag tag-sup">Protector</span>
+                            </div>
+                            <div class="role-card" id="rc-mon" onclick="selectRole('mon')">
+                                <div class="role-emoji">🛡️</div>
+                                <div class="role-name">Monitorizado</div>
+                                <div class="role-desc">Ves tu historial y recibes alertas ante posibles brechas.</div>
+                                <span class="role-tag tag-mon">Protegido</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>NOMBRE DEL GRUPO</label>
+                            <input class="finput" type="text" placeholder="Ej: Familia García" id="groupName">
+                        </div>
+                        <div class="caps" id="caps-list" style="display:none">
+                            <div id="cap-items"></div>
+                        </div>
+                        <button class="btn btn-purple" id="btnCreate" onclick="createGroup()" disabled
+                            style="opacity:0.4">Crear grupo</button>
+                        <button class="btn btn-outline" onclick="closeOv('ov-create')">Cancelar</button>
+                    </div>
+                </div>
+
+                <div class="overlay" id="ov-join" onclick="closeOverlay(event,'ov-join')">
+                    <div class="sheet" onclick="event.stopPropagation()">
+                        <div class="sheet-handle"></div>
+                        <div class="sheet-title">Unirse a un grupo</div>
+                        <div class="sheet-sub">Introduce el código de 4 caracteres que te envió tu familiar</div>
+                        <div class="field">
+                            <label>CÓDIGO DE GRUPO</label>
+                            <input class="finput" type="text" placeholder="Ej: X7K2" maxlength="4" id="joinCode"
+                                style="font-size:22px;font-weight:800;letter-spacing:6px;text-align:center;text-transform:uppercase"
+                                oninput="this.value=this.value.toUpperCase();checkJoin()">
+                        </div>
+                        <button class="btn btn-blue" id="btnJoin" onclick="joinGroup()" disabled
+                            style="opacity:0.4">Unirse al grupo</button>
+                        <button class="btn btn-outline" onclick="closeOv('ov-join')">Cancelar</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="screen off" id="s-ajustes">
+                <div class="hdr">
+                    <button class="back-btn" onclick="go('home')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="app-name">Prote<b>click</b></div>
+                </div>
+                <div class="scroll">
+
+                    <div class="sec-hdr">👤 Cuenta</div>
+                    <div class="sgroup">
+                        <div class="srow tap" onclick="alert('Cambiar nombre')">
+                            <div class="srow-ico ico-blue">✏️</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Cambiar nombre</div>
+                                <div class="srow-sub">Actualiza tu nombre visible</div>
+                            </div>
+                            <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg></div>
+                        </div>
+                        <div class="srow tap" onclick="alert('Cambiar contraseña')">
+                            <div class="srow-ico ico-red">🔑</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Cambiar contraseña</div>
+                                <div class="srow-sub">Modifica tu clave de acceso</div>
+                            </div>
+                            <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg></div>
+                        </div>
+                        <div class="srow tap" onclick="alert('Cambiar foto de perfil')">
+                            <div class="srow-ico ico-green">📸</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Cambiar foto de perfil</div>
+                                <div class="srow-sub">Sube una nueva imagen</div>
+                            </div>
+                            <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg></div>
+                        </div>
+                    </div>
+
+                    <div class="sec-hdr">🛡️ Protección</div>
+                    <div class="sgroup">
+                        <div class="srow">
+                            <div class="srow-ico ico-purple">🔒</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Protección al arrancar</div>
+                                <div class="srow-sub">Activa el escudo automáticamente al abrir la app</div>
+                            </div>
+                            <label class="toggle"><input type="checkbox" id="tog-arranque"><span
+                                    class="tslider"></span></label>
+                        </div>
+                        <div class="srow">
+                            <div class="srow-ico ico-red">🚫</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Bloqueo automático</div>
+                                <div class="srow-sub">Bloquea dominios sospechosos sin confirmación</div>
+                            </div>
+                            <label class="toggle"><input type="checkbox" id="tog-bloqueo"><span
+                                    class="tslider"></span></label>
+                        </div>
+                        <div class="srow" style="flex-direction:column;align-items:flex-start;">
+                            <div style="display:flex;align-items:center;gap:13px;width:100%">
+                                <div class="srow-ico ico-orange">📡</div>
+                                <div class="srow-text">
+                                    <div class="srow-label">Sensibilidad de detección</div>
+                                    <div class="srow-sub">Mayor sensibilidad puede generar más avisos</div>
+                                </div>
+                            </div>
+                            <div class="seg" id="seg-sensibilidad" style="width:100%;margin-top:10px">
+                                <button class="seg-btn" onclick="setSeg('seg-sensibilidad',this)">Básica</button>
+                                <button class="seg-btn active" onclick="setSeg('seg-sensibilidad',this)">Media</button>
+                                <button class="seg-btn" onclick="setSeg('seg-sensibilidad',this)"> Alta</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sec-hdr">🔔 Notificaciones</div>
+                    <div class="sgroup">
+                        <div class="srow">
+                            <div class="srow-ico ico-red">🚨</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Alertas de phishing</div>
+                                <div class="srow-sub">Notificación instantánea al detectar un ataque</div>
+                            </div>
+                            <label class="toggle"><input type="checkbox" id="tog-phishing" checked><span
+                                    class="tslider"></span></label>
+                        </div>
+                        <div class="srow">
+                            <div class="srow-ico ico-purple">👨‍👩‍👧‍👦</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Actividad familiar</div>
+                                <div class="srow-sub">Avisos cuando un miembro del grupo navega</div>
+                            </div>
+                            <label class="toggle"><input type="checkbox" id="tog-familia"><span
+                                    class="tslider"></span></label>
+                        </div>
+                        <div class="srow">
+                            <div class="srow-ico ico-orange">🔊</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Alerta sonora</div>
+                                <div class="srow-sub">Reproducir sonido al recibir una alerta</div>
+                            </div>
+                            <label class="toggle"><input type="checkbox" id="tog-sonido" checked><span
+                                    class="tslider"></span></label>
+                        </div>
+                        <div class="srow">
+                            <div class="srow-ico ico-grey">📳</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Vibración en alarmas</div>
+                                <div class="srow-sub">Vibrar al recibir una alerta de seguridad</div>
+                            </div>
+                            <label class="toggle"><input type="checkbox" id="tog-vibracion" checked><span
+                                    class="tslider"></span></label>
+                        </div>
+                    </div>
+
+                    <div class="sec-hdr">🔐 Privacidad</div>
+                    <div class="sgroup">
+                        <div class="srow">
+                            <div class="srow-ico ico-blue">📋</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Guardar historial</div>
+                                <div class="srow-sub">Almacena localmente tus páginas visitadas</div>
+                            </div>
+                            <label class="toggle"><input type="checkbox" id="tog-historial" checked><span
+                                    class="tslider"></span></label>
+                        </div>
+                        <div class="srow">
+                            <div class="srow-ico ico-green">📊</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Estadísticas anónimas</div>
+                                <div class="srow-sub">Ayuda a mejorar la detección de amenazas</div>
+                            </div>
+                            <label class="toggle"><input type="checkbox" id="tog-estadisticas"><span
+                                    class="tslider"></span></label>
+                        </div>
+                        <div class="srow tap" onclick="alert('Historial borrado')">
+                            <div class="srow-ico ico-red">🗑️</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Borrar historial local</div>
+                                <div class="srow-sub">Elimina todos los registros guardados</div>
+                            </div>
+                            <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg></div>
+                        </div>
+                    </div>
+
+                    <div class="sec-hdr">🌐 Idioma</div>
+                    <div class="sgroup">
+                        <div class="srow">
+                            <div class="srow-ico ico-purple">🌐</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Idioma de la app</div>
+                                <div class="srow-sub" id="lang-sub">Castellano</div>
+                            </div>
+                            <div class="lang-sel-wrap">
+                                <select id="lang-select" onchange="onLangChange(this)">
+                                    <option value="es">Castellano</option>
+                                    <option value="eu">Euskera</option>
+                                    <option value="ca">Català</option>
+                                    <option value="gl">Galego</option>
+                                    <option value="en">English</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sec-hdr">ℹ️ Acerca de</div>
+                    <div class="sgroup">
+                        <div class="srow">
+                            <div class="srow-ico ico-purple">📱</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Versión de la app</div>
+                            </div>
+                            <span class="meta-val">1.0.0</span>
+                        </div>
+                        <div class="srow tap">
+                            <div class="srow-ico ico-grey">📄</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Términos de uso</div>
+                            </div>
+                            <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg></div>
+                        </div>
+                        <div class="srow tap">
+                            <div class="srow-ico ico-grey">🔏</div>
+                            <div class="srow-text">
+                                <div class="srow-label">Política de privacidad</div>
+                            </div>
+                            <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg></div>
+                        </div>
+                    </div>
+
+                    <button class="btn-danger" onclick="alert('Sesión cerrada')">Cerrar sesión</button>
+
+                </div>
+                <nav class="nav" id="n-ajustes"></nav>
+            </div>
+            <div class="warn-overlay" id="warnOverlay">
+                <div class="warn-modal">
+                    <div class="warn-icon-wrap">
+                        <div class="warn-pulse"></div>
+                        <svg class="warn-icon" viewBox="0 0 24 24" fill="none" stroke="#e84040" stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <circle cx="12" cy="15.5" r="1.2" fill="#e84040" stroke="none" />
+                        </svg>
+                    </div>
+                    <div class="warn-tag">⚠️ ADVERTENCIA</div>
+                    <h2 class="warn-title">Dominio no seguro detectado</h2>
+                    <p class="warn-maybe">Quizás buscabas entrar a la página web de</p>
+                    <div class="warn-entity" id="warnEntity">—</div>
+                    <div class="warn-domain-box">
+                        <span class="warn-domain-lbl">Dominio oficial protegido</span>
+                        <span class="warn-domain-val" id="warnDomain">—</span>
+                    </div>
+                    <div class="warn-actions">
+                        <button class="warn-btn-block" onclick="blockThreat()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16"
+                                height="16">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+                            </svg>
+                            Bloquear amenaza
+                        </button>
+                        <button class="warn-btn-skip" onclick="skipWarning()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16"
+                                height="16">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                            Omitir advertencia
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sim-panel-mini">
+            <div class="sim-label-mini">🔬 Modo demostración</div>
+            <button class="sim-btn-mini" onclick="simularAdvertencia()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+                    <path
+                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                    <line x1="12" y1="9" x2="12" y2="14" stroke-linecap="round" />
+                    <circle cx="12" cy="18" r="1" fill="#e84040" />
+                </svg>
+                Simular dominio peligroso
+            </button>
+        </div>
+    </div>
+    <script src="proteclick.js"></script>
+</body>
+
+</html>
